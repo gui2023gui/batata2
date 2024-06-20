@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>batata</title>
+  <script>
+    // Função para incrementar o contador de cliques na imagem
+    function incrementarContador() {
+      if (localStorage.getItem('contadorCliquesbatata')) {
+        var contador = parseInt(localStorage.getItem('contadorCliquesbatata'));
+        localStorage.setItem('contadorCliquesbatata', contador + 1);
+      } else {
+        localStorage.setItem('contadorCliquesbatata', 1);
+      }
+      // Atualizar o texto do contador na página
+      document.getElementById('contadorbatata').textContent = localStorage.getItem('contadorCliquesbatata');
+    }
+  </script>
+</head>
+<body>
+  <h1>Imagem de batata</h1>
+  
+  <!-- Inserindo a imagem de pneu com função para incrementar o contador -->
+  <img src="batata.jpeg" alt="Pneu" width="300" onclick="incrementarContador()" style="cursor: pointer;">
+  
+  <p>Clique na imagem da batata para contar os cliques.</p>
+
+  <p>Contagem de cliques na imagem de batata: <span id="contadorbatata">
+    <!-- Script para exibir o contador inicializado -->
+    <script>
+      if (localStorage.getItem('contadorCliquesbatata')) {
+        document.getElementById('contadorbatata').textContent = localStorage.getItem('contadorCliquesbatata');
+      } else {
+        document.getElementById('contadorbatata').textContent = '0';
+      }
+    </script>
+  </span></p>
+</body>
+</html>
+
